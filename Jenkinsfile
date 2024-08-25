@@ -27,19 +27,19 @@ pipeline {
                 }
             }
         }
-        stage('Build Backend') {
+        stage('Run Backend') {
             steps {
-                echo 'Building backend...'
+                echo 'Starting backend server...'
                 dir('backend') {
-                    bat 'npm run build'  // Adjust this if your build command is different
+                    bat 'npm run dev'
                 }
             }
         }
-        stage('Build Frontend') {
+        stage('Run Frontend') {
             steps {
-                echo 'Building frontend...'
+                echo 'Starting frontend development server...'
                 dir('frontend') {
-                    bat 'npm run build'  // Adjust this if your build command is different
+                    bat 'npm run dev'
                 }
             }
         }
@@ -48,6 +48,9 @@ pipeline {
     post {
         always {
             echo 'The pipeline has finished'
+        }
+        success {
+            echo 'Congrats! Your pipeline has succeeded'
         }
         failure {
             echo 'Oops! Your pipeline has failed'
