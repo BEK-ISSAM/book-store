@@ -43,6 +43,12 @@ pipeline {
                 }
             }
         }
+        stage('Keep Alive') {
+            steps {
+                echo 'Keeping the pipeline alive...'
+                bat 'timeout /t 86400'
+            }
+        }
     }
 
     post {
