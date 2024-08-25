@@ -45,8 +45,10 @@ pipeline {
         }
         stage('Keep Alive') {
             steps {
-                echo 'Keeping the pipeline alive...'
-                bat 'timeout /t 86400'
+                script {
+                    // Start a PowerShell process that waits indefinitely
+                    bat 'powershell -Command "Start-Sleep -Seconds 86400"'
+                }
             }
         }
     }
