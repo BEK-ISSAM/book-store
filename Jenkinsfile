@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo 'Starting backend server...'
                 dir('backend') {
-                    bat 'npm run dev'
+                    bat 'node index.js'
                 }
             }
         }
