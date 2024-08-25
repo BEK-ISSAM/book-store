@@ -1,11 +1,23 @@
 pipeline {
   agent any
   stages {
-    stage("build") {
+    stage("build backend") {
       steps {
-        echo 'starting build phase...'
-        sh 'npm install'
-        sh 'npm build'
+        echo 'starting backend build phase...'
+        dir('backend') {
+          sh 'npm install'
+          sh 'npm run build'
+        }
+      }
+    }
+
+    stage("build frontend") {
+      steps {
+        echo 'starting frontend build phase...'
+        dir('frontend') {
+          sh 'npm install'
+          sh 'npm run build'
+        }
       }
     }
   }
