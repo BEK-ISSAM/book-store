@@ -17,7 +17,7 @@ const CreateBook = () => {
     const data = { title, author, publishYear }
     setLoading(true)
     axios
-    .post('http://localhost:5555/books', data)
+    .post('http://localhost:5000/books', data)
     .then(() => {
       setLoading(false)
       enqueueSnackbar("Book created successfully", { variant: 'success' })

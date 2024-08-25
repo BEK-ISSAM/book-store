@@ -14,7 +14,7 @@ const DeleteBook = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`http://localhost:5000/books/${id}`)
       .then((response) => {
         setBookName(response.data.title);
       })
@@ -26,7 +26,7 @@ const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(false);
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(`http://localhost:5000/books/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book deleted successfully", { variant: "success" });
