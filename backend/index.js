@@ -27,7 +27,7 @@ app.use(cors());
 // Define a route for the root URL ("/") that sends a response with status 200 and a message
 app.get("/", (req, res) => {
     console.log(req);
-    return res.status(234).send("Message to display");
+    return res.status(234).send("Message to display updated - testing whether the jenkins pipeline really works");
 });
 
 app.use("/books", booksRoute)
